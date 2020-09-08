@@ -1,3 +1,36 @@
+Tyler, Kyler
+* Mancala
+int board[6][2] = {
+  {4, 4, 4, 4, 4, 4},
+  {4, 4, 4, 4, 4, 4}
+  };
+// or int board1[6], board2[6];
+int total[2] = {0, 0};
+// or int total1, total2;
+* Print board
+* Figure out code to make a move just for one fixed
+  choice, player1, 3.
+* After code works for that case, make it work for player1, 3,
+  different amounts of beads.  Then different choices for bin.
+* Making a move
+  Player1 top, player2 bottom
+  player1 moves, picks "3" then board state should be
+  {{5, 5, 0, 4, 4, 4},
+   {5, 4, 4, 4, 4, 4}}
+  total: {1, 0}.
+* In code...
+  int move = 3; int remaining_to_drop = 4;
+  board[move][0] = 0; // or board1[move] = 0;
+  // loop on player 1's side
+  for(int bin=move-1; bin >= 0 && remaining_to_drop > 0; b--) { board1[bin]++; remaining_to_drop--; //player1's part}
+  // the end
+  total;
+  // loop on player 2's side
+  for() { player 2's part}
+* Can test that out with different board states, not
+  just 4 beads, but also 2, or 1, or 10.
+* Then player2.
+
 Maddie, Cynthia
 * Guess the number
 * Phase 1 - the usual guess the number game, computer picks at random, user guesses.
@@ -13,7 +46,7 @@ char board[8][9] = {
   "pppppppp",
   "        ",
   "        ",
-  
+
   "        ",
   "        ",
   "PPPPPPPP",
@@ -63,39 +96,6 @@ Nancy, Sally
   * Let them choose what operation
   * Let them choose the range of the #s
   * Two players, and let them know who "wins"
-
-Tyler, Kyler
-* Mancala
-int board[6][2] = {
-  {4, 4, 4, 4, 4, 4},
-  {4, 4, 4, 4, 4, 4}
-  };
-// or int board1[6], board2[6];
-int total[2] = {0, 0};
-// or int total1, total2;
-* Print board
-* Figure out code to make a move just for one fixed
-  choice, player1, 3.
-* After code works for that case, make it work for player1, 3,
-  different amounts of beads.  Then different choices for bin.
-* Making a move
-  Player1 top, player2 bottom
-  player1 moves, picks "3" then board state should be
-  {{5, 5, 0, 4, 4, 4},
-   {5, 4, 4, 4, 4, 4}}
-  total: {1, 0}.
-* In code...
-  int move = 3; int remaining_to_drop = 4;
-  board[move][0] = 0; // or board1[move] = 0;
-  // loop on player 1's side
-  for(int bin=move-1; bin >= 0 && remaining_to_drop > 0; b--) { board1[bin]++; remaining_to_drop--; //player1's part}
-  // the end
-  total;
-  // loop on player 2's side
-  for() { player 2's part}
-* Can test that out with different board states, not
-  just 4 beads, but also 2, or 1, or 10.
-* Then player2.
 
 Caleb, Justin
 Greg, Trevor
