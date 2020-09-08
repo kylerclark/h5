@@ -1,0 +1,238 @@
+Maddie, Cynthia
+* Guess the number
+* Phase 1 - the usual guess the number game, computer picks at random, user guesses.
+          - options: min/max, cheat mode
+* Phase 2 - user picks the number, computer guesses.
+  	  - options: optimal (binary search), random (with repeats), linear
+* Phase 3 - if you finish those, then let's talk.
+
+Brayden, Lukas
+* Chess
+char board[8][9] = {
+  "rnbqkbnr",
+  "pppppppp",
+  "        ",
+  "        ",
+  
+  "        ",
+  "        ",
+  "PPPPPPPP",
+  "RNBQKBNR"};
+* Functions you need: printBoard, getMove, updateBoard
+* printBoard - printf("%s\n", board[0]);
+* getMove - two coordinates of piece to move, two coordinate of where to move it
+  int old_r, old_c; scanf("%d", &old_r); scanf("%d", &old_c);
+  board[new_r][new_c] = board[old_r][old_c];
+* updateBoard - set the new piece, the old position becomes ' '
+* loop
+
+Leah, Brandon
+* Riddles
+  riddle.txt - each line is a question
+  answers.txt - each line is an answer
+* reading from riddles...
+  // assume <= 100 riddles
+  char *riddles[100] = {
+    "What does the fox say?",
+    "What is the answer?"
+  };
+  char *answers[100] = {
+    "laksjdf",
+    "42"
+  };
+  int num_riddles = 2;
+  int random_riddle = rand() % num_riddles;
+* read riddles/answers from a file - after basically have things working
+  1) fgets repeatedly and char riddles[100][1000];  // riddles[0] the first one
+  2) geline
+  3) pick at random which riddle, and skip past to that line in the file
+
+Ben, Jace
+* Typing test
+* Phase 1: print a prompt, scanf/getline/fgets to get from user, print out the time it took.
+* Phase 2: # mistakes - assume same # of words as in prompt, just strcmp the words and report # words correct.
+* Phase 3: more prompts and let them choose.  DoI, EP.  A few different lengths, a few different "difficulties".
+
+Nancy, Sally
+* Math quiz
+* Start with math_quiz.c as a starting point
+* Keep a score of how many correct, score++ when they are correct
+* Loop to ask 3 questions and tell them how many they got right
+* Next after that -
+  * Let them choose how many questions
+  * Let them choose what operation
+  * Let them choose the range of the #s
+  * Two players, and let them know who "wins"
+
+Tyler, Kyler
+* Mancala
+int board[6][2] = {
+  {4, 4, 4, 4, 4, 4},
+  {4, 4, 4, 4, 4, 4}
+  };
+// or int board1[6], board2[6];
+int total[2] = {0, 0};
+// or int total1, total2;
+* Print board
+* Figure out code to make a move just for one fixed
+  choice, player1, 3.
+* After code works for that case, make it work for player1, 3,
+  different amounts of beads.  Then different choices for bin.
+* Making a move
+  Player1 top, player2 bottom
+  player1 moves, picks "3" then board state should be
+  {{5, 5, 0, 4, 4, 4},
+   {5, 4, 4, 4, 4, 4}}
+  total: {1, 0}.
+* In code...
+  int move = 3; int remaining_to_drop = 4;
+  board[move][0] = 0; // or board1[move] = 0;
+  // loop on player 1's side
+  for(int bin=move-1; bin >= 0 && remaining_to_drop > 0; b--) { board1[bin]++; remaining_to_drop--; //player1's part}
+  // the end
+  total;
+  // loop on player 2's side
+  for() { player 2's part}
+* Can test that out with different board states, not
+  just 4 beads, but also 2, or 1, or 10.
+* Then player2.
+
+Caleb, Justin
+Greg, Trevor
+* Connect4, maybe Nim
+* the board
+char board[6][7+1] = {
+ "       ",//0
+ "       ",//1
+ "       ",//2
+ "       ",//3
+ "       ",//4
+ "   x   ",//5
+//0123456
+};
+// make board global variable
+// lots of little functions - printBoard, getMove, updateBoard, isLegalMove
+// printf("%s\n", board[2]);
+// board[5][3] = 'x';
+for(int i=0; i < 6; i++)
+  printf("|%s|\n", board[i]);
+printf("---------\n");
+int where_row = 5, where_col = 3;
+char player = '1'; // or '2'
+board[where_row][where_col] = player;
+* Use that strategy, and ask the user for which row/col and update the
+  board.
+* Make it work for a few moves, then put in a loop to alternate between
+  players.
+* Player types something special when they want to quit or the game is over.
+------------
+* Potential options for improvement
+  - they tell a column, it drops down.
+  - check for illegal moves.
+  - check for winning.
+  - print the board nicer.
+  - random computer player.
+  - ...
+
+
+Matt, Zachary
+* Quiz
+* Uses chooses subject
+* Some subjects pick a random question (history facts)
+* Some subjects generate a random question (math problems)
+* Store questions/answers as strings
+char questions[2][100] = {
+"What is your name?",
+"Question 2"
+};
+char answers[2][100] = {
+"Jeff",
+"Answer 2"
+};
+int q_number = rand() % 2;
+* Step 1 - get one category working like that.
+* Step 2 - multiple categories.
+* Step 3 - a nicer format for storing questions/answers (csv file).
+
+
+Andani, Cam, Colin
+* Unit conversions
+Start with distance
+float cm = 100;
+float in = 39.3701;
+float km = 1.0/1000;
+float m = 1;
+// miles
+// feet
+// yards
+// light years
+// astronomical unit
+// leagues
+// parsecs
+* Sample transcript
+Distance conversion program
+What unit to convert from? cm
+How many? 46
+// the program converts that to m
+// the program then converts to all the other
+// units and prints out
+.46 m
+18.110246 in
+... km
+* code would be something like...
+float from; // read that in
+float converted_m;
+if (strcmp(choice,"cm") == 0) {
+  converted_m = from / cm;
+}
+else if (strcmp(choice, "in") == 0) {
+  converted_m = from / in;
+}
+else if {
+}
+...
+
+printf("%f km\n", converted_m * km);
+printf("%f yards\n", converted_m * yards);
+...
+
+* Another way
+char *units[4] = {
+ "cm", "in", "km", "m"
+};
+float conversion[4] = {
+ 100, 39.3701, .0001, 1.0
+};
+char choice[100]; // read in choice text: cm or in or ...
+for loop to loop through units array checking if strcmp(units[i], choice) == 0.
+
+Alex, Ethan
+* Battleship
+* Try out doing the UI in curses
+* compile with -lncurses
+* help - https://pubs.opengroup.org/onlinepubs/007908799/xcurses/curses.h.html
+* maybe keyboard input with innstr
+* See /u1/junk/curses
+char board[8][11] = {
+"**********", // board[0]
+"*        *", // board[1]
+"*        *",
+"*        *",
+"*        *",
+"*        *",
+"*        *",
+"**********"
+}
+for(int i=0; i < 8; i++) {
+  //mvprintw(boardRow+i, boardCol, "%s", board[i]);
+  for(int j=0; board[i][j] != '\0'; j++) {
+    if (board[i][j] != 's')
+      mvprintw(boardRow+i, boardCol+j], "%c", board[i][j]);
+  }
+}
+
+if (board[rowGuess][colGuess] == 's')
+  board[rowGuess][colGuess] = 'x';
+else
+  board[rowGuess][colGuess] = 'o';
+* Two boards - one for computer, one for you
