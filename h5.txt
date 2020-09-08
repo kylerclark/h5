@@ -1,0 +1,54 @@
+Making a game in a group of 2 or 3 people.
+
+Final due date: Sept 10, though you need to get started sooner.
+
+Why: force you to talk to another person in the class, do something open-ended where you can ask me to help more if needed.
+
+Points: 15 total
+* 5 points is good programming style, see https://cs.indstate.edu/wiki/index.php/Programming_Style_-_Generic
+* 10 points is functionality - does the program do what I asked you to complete
+
+
+** Groups **
+Your group - you can pick your group or ask to be assigned to a group.
+
+Group work - you can choose one of the following ways to work together
+      	   1) pair programming (aka extreme programming) - do everything together, take turns who types (really take turns)
+	      * default - good because will catch each other's bugs, help each other out, talk through things
+	   2) work in parallel with each of you keeping your own code base.
+	   3) split up parts of the project to each work on
+
+Sharing files - however you want to.  If you want to make a project directory that your partner can copy out of -
+  cd ~
+  chmod a+x .
+  mkdir project
+  chmod a+rx project
+And your partner does
+  cd ~cs202xy/project
+  ls
+Or OneDrive with shared folders.
+
+*+- Update - see ~cs202/h5/README for information to fill out about the group work itself.  Those who did not do any work will not get any points.
+*+- Note - every member of the group needs to submit the code for the assignment.  If you do not submit anything you do not get any points.
+
+** What Game **
+You propose a game to work on and then meet with / discuss with me to make up your initial plan.
+
+Some ideas ...
+- Any board game - chess, checkers, mancala, connect4, battleship, ...
+- Any card game - go fish, poker, black jack, garbage, ...
+- Quiz - math, spelling, trivia, ...
+- Typing practice - speed, accuracy
+- Simulation - planets, game of life, ...
+- 2D World - with your person exploring the world
+- Chatbot -
+- Unit coversions -
+- Calculator - 
+- You name it
+
+If you have something you have done previously in Python, it would be fine to do it now in C.
+
+
+** First Steps **
+1) Notify me of your group or that you want to be assigned a group.
+2) Pick a time to meet from cs.indstate.edu/scheduler so I can give you a starting point.
