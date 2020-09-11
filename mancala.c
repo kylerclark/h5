@@ -95,24 +95,28 @@ void move(int player) {
         choice--;
         int numStones = board2[choice];
         board2[choice] = 0;
-        int extra = numStones-choice;
-        if (extra == 0) {
+        int extra = numStones-(6-choice)+1;
+        if (extra == 1) {
           total2++;
           for(int i = choice; i > choice-numStones+1; i--) {
             board2[i]++;
           }
+          printBoard();
           move(player);
         }
         else if (extra < 0) {
-          for(int i = choice; i > choice-numStones; i--) {
+          for(int i = choice; i >= choice-numStones; i--) {
             board2[i]++;
           }
         }
         else if (extra > 0) {
-          total2++;
+          total1++;
           extra--;
+          for(int i = choice-1; i < 6; i++) {
+            board2[i]++;
+          }
           if (extra < 6) {
-            for(int i = 0; i < extra; i++) {
+            for(int i = 0; i <= extra; i++) {
               board1[i]++;
             }
           }
@@ -143,7 +147,6 @@ void checkBoard() {
       }
 }
 
-
 int main() {
     printBoard();
     while (running) {
@@ -153,5 +156,4 @@ int main() {
       move(2);
       printBoard();
     }
-
 }
