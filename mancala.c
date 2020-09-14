@@ -15,7 +15,36 @@ bool running = true;
 bool p1Skip = false;
 bool p2Skip = false;
 
+void mainmenu() {
+    int num;
+
+    system("cls");
+    printf("Welcome to Mancala\nBy Kyler Clark and Tyler Freberg\n\n1) Rules\n2) Play\n3) Exit\n\nPlease enter an option (1-3): ");
+    scanf("%d", &num);
+
+    if (num == 1) {
+        system("cls");
+
+        printf("Player 1 is the top row.\nPlayer 2 is the bottom row.\n\nPlayer 1 goes first.\n\nA player enters a number 1-6. The stones in that pot (This is a pot (04)) will go around the board counter clockwise\nfor the number of stones, dropping a stone in each pot along the way. If the last stone ends in the storage (|04|),\nthat same player gets to go another turn. Otherwise, the next player goes. The game ends when both sides have 0\nstones in each pot. The player with the highest total number in their storage wins.\n\nP1    1   2   3   4   5   6\n|00|(04)(04)(04)(04)(04)(04)\n    (04)(04)(04)(04)(04)(04)|00|\n      1   2   3   4   5   6  P2\n\nPress Enter to continue to the main menu: ");
+        getchar();
+        while(getchar() != '\n') {
+            getchar();
+        }
+        mainmenu();
+        return;
+    }
+    else if (num == 2) {
+    }
+    else if (num == 3) {
+        exit(0);
+    }
+    else {
+        mainmenu();
+    }
+}
+
 void printBoard() {
+    printf(" P1   1   2   3   4   5   6\n");
     if (total1 < 10) {
         printf("|0%d|", total1);
     }
@@ -49,49 +78,7 @@ void printBoard() {
     else {
         printf("|%d|\n", total2);
     }
-}
-
-void move(int player) {
-    int choice = 0;
-    printf("Please enter a number (1-6): ");
-    scanf("%d", &choice);
-
-    if (player == 1) {
-        choice = 6-choice;
-    }
-    else {
-        choice += 6;
-    }
-    int stones = board[choice];
-    int stones2 = board[choice];
-    board[choice] = 0;
-
-    for(int i=choice+1; stones > 0; i++) {
-        if (i > 13) {
-            i = 0;
-        }
-        board[i]++;
-        stones--;
-    }
-
-    total1 = board[6];
-    total2 = board[13];
-
-    if (player == 1 && 6-choice-stones2 == 0) {
-        system("cls");
-        printBoard();
-        printf("%s\n", "Player 1's Turn Again");
-        move(player);
-        return;
-    }
-    if (player == 2 && choice+stones2 == 13) {
-        system("cls");
-        printBoard();
-        printf("%s\n", "Player 2's Turn Again");
-        move(player);
-        return;
-    }
-
+    printf("      1   2   3   4   5   6  P2\n");
 }
 
 void checkBoard() {
@@ -123,17 +110,73 @@ void checkBoard() {
     }
 }
 
+void move(int player) {
+
+    int choice = 0;
+    printf("Please enter a number (1-6): ");
+    scanf("%d", &choice);
+
+    if (player == 1) {
+        choice = 6-choice;
+    }
+    else {
+        choice += 6;
+    }
+    int stones = board[choice];
+    int stones2 = board[choice];
+    board[choice] = 0;
+
+    for(int i=choice+1; stones > 0; i++) {
+        if (i > 13) {
+            i = 0;
+        }
+        board[i]++;
+        stones--;
+    }
+
+    total1 = board[6];
+    total2 = board[13];
+
+    if (player == 1 && 6-choice-stones2 == 0) {
+        system("cls");
+        printBoard();
+        printf("%s\n", "Player 1's Turn Again");
+        checkBoard();
+        if (!p1Skip) {
+            move(player);
+        }
+        return;
+    }
+    if (player == 2 && choice+stones2 == 13) {
+        system("cls");
+        printBoard();
+        printf("%s\n", "Player 2's Turn Again");
+        checkBoard();
+        if (!p2Skip) {
+            move(player);
+        }
+        return;
+    }
+}
+
+
+
 int main() {
+    mainmenu();
     system("cls");
     printBoard();
     while (running) {
-        checkBoard();
-        printf("%s\n", "Player 1's Turn");
-        move(1);
+        if (!p1Skip) {
+            printf("%s\n", "Player 1's Turn");
+            move(1);
+        }
         system("cls");
         printBoard();
-        printf("%s\n", "Player 2's Turn");
-        move(2);
+        if (!p2Skip) {
+            printf("%s\n", "Player 2's Turn");
+            move(2);
+        }
+        checkBoard();
         system("cls");
         printBoard();
     }
