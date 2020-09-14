@@ -18,12 +18,12 @@ bool p2Skip = false;
 void mainmenu() {
     int num;
 
-    system("cls");
+    system("clear");
     printf("Welcome to Mancala\nBy Kyler Clark and Tyler Freberg\n\n1) Rules\n2) Play\n3) Exit\n\nPlease enter an option (1-3): ");
     scanf("%d", &num);
 
     if (num == 1) {
-        system("cls");
+        system("clear");
 
         printf("Player 1 is the top row.\nPlayer 2 is the bottom row.\n\nPlayer 1 goes first.\n\nA player enters a number 1-6. The stones in that pot (This is a pot (04)) will go around the board counter clockwise\nfor the number of stones, dropping a stone in each pot along the way. If the last stone ends in the storage (|04|),\nthat same player gets to go another turn. Otherwise, the next player goes. The game ends when both sides have 0\nstones in each pot. The player with the highest total number in their storage wins.\n\nP1    1   2   3   4   5   6\n|00|(04)(04)(04)(04)(04)(04)\n    (04)(04)(04)(04)(04)(04)|00|\n      1   2   3   4   5   6  P2\n\nPress Enter to continue to the main menu: ");
         getchar();
@@ -138,7 +138,7 @@ void move(int player) {
     total2 = board[13];
 
     if (player == 1 && 6-choice-stones2 == 0) {
-        system("cls");
+        system("clear");
         printBoard();
         printf("%s\n", "Player 1's Turn Again");
         checkBoard();
@@ -148,7 +148,7 @@ void move(int player) {
         return;
     }
     if (player == 2 && choice+stones2 == 13) {
-        system("cls");
+        system("clear");
         printBoard();
         printf("%s\n", "Player 2's Turn Again");
         checkBoard();
@@ -163,21 +163,21 @@ void move(int player) {
 
 int main() {
     mainmenu();
-    system("cls");
+    system("clear");
     printBoard();
     while (running) {
         if (!p1Skip) {
             printf("%s\n", "Player 1's Turn");
             move(1);
         }
-        system("cls");
+        system("clear");
         printBoard();
         if (!p2Skip) {
             printf("%s\n", "Player 2's Turn");
             move(2);
         }
         checkBoard();
-        system("cls");
+        system("clear");
         printBoard();
     }
 
